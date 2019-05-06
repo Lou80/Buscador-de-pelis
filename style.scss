@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'mixins';
+@import 'movie_info';
 
 * {
     box-sizing: border-box;
@@ -61,17 +62,50 @@ main {
     position: absolute;
     overflow: hidden;
     bottom: -20%;
-    left: -29%;
+    left: -20%;
     height: 150%;
-    background-color: gainsboro;
-    -webkit-transform: rotate(5deg);
     transform: rotate(5deg);
-    img {
-        filter: blur(10px);    
-        height: 600px;    
+    img {   
+        filter: blur(6px);
+        object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.4);   
     }
 }
 
-// PARTIALS
-// puedo separar código css o sass que sea específico de una sección e importarlo a mi sass principal. Es buena práctica tener uno principal e importar el resto
-@import 'movie_info'
+@media only screen and (max-width: 768px) {
+    .poster-blur {
+        left: -25%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .poster-blur {
+        top: -120%;
+        bottom: -80%;
+        width: 120%;
+        left: 4%;
+    }
+    main {
+        margin: auto;
+        margin-top: 30px;
+        .container {
+            z-index: 1;
+        }
+        #movie {
+            display: block;
+            .foto {
+                margin-top: 100px;
+                width: 100%;
+                justify-content: left;
+                padding-left: 30px;
+            }
+        }
+        .movie-info {
+            width: 100%;
+            padding: 28px;
+            margin-top: 0px;
+        }
+    }
+}
